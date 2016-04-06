@@ -1,0 +1,21 @@
+<form>
+  <label>Party Name: </label>
+  <input type="text" ng-model="partiesList.newParty.name" />
+  <label>Email: </label>
+  <input type="text" ng-model="partiesList.newParty.description" />
+  <button ng-click="partiesList.addParty()">Add Party!</button>
+</form>
+ <button ng-click="partiesList.exportData()">Export</button>
+
+  <div id="exportable">
+<table class="table table-striped">
+  <tr ui-sref="partyDetails({ partyId: party._id })" ng-repeat="party in partiesList.parties">
+   <td> {{party.name}}</td>
+    <td>{{party.description}}</td>
+    <td><button ng-click="partiesList.removeParty(party)">Delete</button></td>
+  </tr>
+</table>
+<button ng-click="partiesList.sendEmail()">Send Email</button>
+
+
+</div>

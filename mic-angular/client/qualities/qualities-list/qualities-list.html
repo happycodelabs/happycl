@@ -1,0 +1,14 @@
+<form>
+  <label> Quality: </label>
+  <input type="text" ng-model="qualitiesList.newQuality.name" />
+  <label>Nick name: </label>
+  <input type="text" ng-model="qualitiesList.newQuality.nick" />
+  <button ng-click="qualitiesList.addQuality()">Add Quality!</button>
+</form>
+<table class="table table-striped">
+  <tr ui-sref="qualityDetails({ qualityId: quality._id })" ng-repeat="quality in qualitiesList.qualities">
+    <td>{{quality.name}}</td>
+    <td>{{quality.nick}}</td>
+    <td><button ng-click="qualitiesList.removeQuality(quality)">Delete</button></td>
+  </tr>
+</table>

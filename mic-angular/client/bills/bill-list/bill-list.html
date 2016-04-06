@@ -1,0 +1,51 @@
+ 
+<form>
+
+ <p>Date  <input type="text" ng-model="billList.newBill.date" id="my-datepicker" required></p>
+		<p>Bill Id <input type="text"  ng-model="billList.newBill.bid"  required></p>
+		<p>Quality <select ng-model="billList.newBill.qlty" required>
+			  <option value="">select</option>
+			  <option value="{{qua.qlty}}" ng-repeat="qua in billList.quality">{{qua.name}}</option>
+
+           </select>
+
+
+
+		</p>
+		<p>Party <select ng-model="billList.newBill.party" required>
+			  <option value="" >select</option>
+			  <option value="{{party.name}}" ng-repeat="party in billList.parties">{{party.name}}</option>
+
+           </select>
+
+		</p>
+		
+		<p>Firm <input type="text" ng-model="billList.newBill.firm" required></p>
+		<p>Bags <input type="text" ng-model="billList.newBill.bags" ng-change="billList.getWht()" required></p>
+		<p>Weight <input type="text" ng-model="billList.newBill.wht" required></p>
+		<p>Kuli <input type="text" ng-model="billList.newBill.kuli" required></p>
+		<p>Rate <input type="text" ng-model="billList.newBill.rate" ng-change="billList.getTotal()" required></p>
+		<p>Total <input type="text" ng-model="billList.newBill.total" required></p>
+		<p>Bill <input type="text" ng-model="billList.newBill.bill" ng-change="billList.getDiff()" required></p>
+		<p>Difference <input type="text" ng-model="billList.newBill.diff" required></p>
+		<p><button type="submit" ng-click="billList.addBill()">submit</button></p>
+
+  </form>
+
+  <table class="table table-striped">
+  	<tr ng-repeat="bill in billList.bills">
+      <td>{{bill.date}}</td>
+    <td>{{bill.bid}}</td>
+    <td>{{bill.qlty}}</td>
+    <td>{{bill.party}}</td>
+    <td>{{bill.firm}}</td>
+    <td>{{bill.bags}}</td>
+    <td>{{bill.wht}}</td>
+    <td>{{bill.kuli}}</td>
+    <td>{{bill.rate}}</td>
+    <td>{{bill.total}}</td>
+    <td>{{bill.bill}}</td>
+    <td>{{bill.diff}}</td>
+  	</tr>
+
+  </table>
